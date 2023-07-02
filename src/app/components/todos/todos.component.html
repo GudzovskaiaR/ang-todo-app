@@ -1,0 +1,33 @@
+<div class="todos-app">
+  <!-- <h2 class="is-empty-text" [class.isEmpty]="todosItem.length">
+    Todo list is empty ...
+  </h2> -->
+  <!-- <h2 *ngIf="!todosItem.length" class="is-empty-text" >
+    Todo list is empty ...
+  </h2> -->
+
+<app-add-todo (addTodo)="addTodo($event)"></app-add-todo>
+
+  <div *ngIf="!todosItem.length; then thenBlock; else elseBlock"></div>
+
+  <ng-template #thenBlock>
+    <h2 class="is-empty-text">Todo list is empty ...</h2>
+  </ng-template>
+
+  <ng-template #elseBlock>
+    <div class="todo">
+      <h2 class="todos__count">{{ todosItem.length }}</h2>
+      <ul class="todo-list">
+        <app-todo-item
+          *ngFor="let todo of todosItem; let i = index"
+          [todo]="todo"
+          [index]="i"
+          (toggleComplete)="toggleComplete(todo)"
+          (delTodo)="delTodo(todo)"
+          (editTodo)="editTodo($event)"
+        >
+        </app-todo-item>
+      </ul>
+    </div>
+  </ng-template>
+</div>

@@ -1,0 +1,37 @@
+.todo-item {
+  padding: 10px;
+  border: 1px solid silver;
+  display: flex;
+  align-items: center;
+  input {
+    margin-right: 7px;
+  }
+  span {
+    &:first-child {
+      margin-right: 5px;
+    }
+  }
+  &_completed {
+    text-decoration: line-through;
+  }
+  &__del-btn {
+    padding: 10px;
+    background: tomato;
+    margin-left: auto;
+  }
+  &__edit-btn {
+    padding: 10px;
+    background: purple;
+    margin-left: 5px;
+    color: white;
+  }
+}
+.edit-todo {
+  display: flex;
+  align-items: center;
+  &__input {
+      width: 90%;
+      padding: 5px;
+      margin: 5px;
+  }
+}

@@ -1,0 +1,31 @@
+<div>
+  <li [class]="!todo.completed ? 'todo-item' : 'todo-item todo-item_completed'">
+    <span>{{ index + 1 }}. </span>
+    <input
+      type="checkbox"
+      [checked]="todo.completed"
+      (change)="onToggleComplete()"
+    />
+    <span>{{ todo.title }}</span>
+    <button class="todo-item__del-btn" (click)="onDelTodo()">&times;</button>
+    <button
+      *ngIf="!isEdit; else editButton"
+      (click)="isEdit = !isEdit"
+      class="todo-item__edit-btn"
+    >
+      Edit
+    </button>
+    <ng-template #editButton>
+      <button (click)="onEditTodo()" class="todo-item__edit-btn">Save</button>
+    </ng-template>
+  </li>
+  <div>
+    <input
+      *ngIf="isEdit"
+      type="text"
+      [(ngModel)]="todoTextEdit"
+      class="edit-todo__input"
+    />
+  </div>
+  <!-- <app-edit-todo *ngIf="isEdit" [todo]="todo" [todoTextEdit]="todoTextEdit" class="todo-edit" (onEditTodo)="onEditTodo()"></app-edit-todo> -->
+</div>

@@ -1,0 +1,14 @@
+h1 {
+  margin-bottom: 50px;
+}
+
+
+
+.info{
+    padding: 10px;
+    background: green;
+    color: white;
+    &.alert{
+        background: red;
+    }
+}
